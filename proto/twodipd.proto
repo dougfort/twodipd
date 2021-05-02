@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package twodipd;
 
-service TwoDIPD {
+service Ipd {
     rpc Join(JoinRequest) returns (JoinResponse) {}
 }
 
@@ -11,12 +11,12 @@ message JoinRequest {
 }
 
 message JoinResponse {
-    enum Status {
-        OK = 0;
+    enum JoinStatus {
+        SUCCESS = 0;
         DUPLICATE = 1;
         ERROR = 2;
     }
-    Status status = 1;
+    JoinStatus status = 1;
 
     oneof status_oneof {
         int32 gameid = 2;
